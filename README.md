@@ -1,7 +1,5 @@
 # Snake_game-website
 
-# Snake Web Game
-
 A classic Snake game built with HTML, CSS, and JavaScript. This project demonstrates the basics of web APIs and the use of localStorage for persistent data, such as a leaderboard and customizable snake skins.
 
 ## 📚 Purpose
