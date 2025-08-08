@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Snake Game</h1>
+        <button onclick="location.href='gamepage.html'">Start Game</button>
+    <button id="leaderboard-btn" onclick="location.href='leaderboard.html'">Leaderboard</button>
+        <button id="skins-btn" onclick="location.href='skins.html'">Custom Skins</button>
+        <button id="credits-btn" onclick="location.href='credit.html'">Credits</button>
+    </div>
+    <audio id="menuMusic" src="assets/menu.mp3" loop autoplay></audio>
+    <script>
+        window.onload = function() {
+            const music = document.getElementById('menuMusic');
+            // Try to play music (may require user interaction depending on browser)
+            music.volume = 0.5;
+            music.play().catch(() => {
+                // If autoplay is blocked, play on first user interaction
+                document.body.addEventListener('click', () => {
+                    music.play();
+                }, { once: true });
+            });
+        };
+    </script>

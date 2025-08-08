@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Skins</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Choose Snake Color</h1>
+        <div style="margin-bottom:16px;">
+            <button class="color-btn" style="background:#1e3c72; color:#fff; margin-right:8px;" onclick="setColor('#1e3c72')">Blue</button>
+            <button class="color-btn" style="background:#e74c3c; color:#fff; margin-right:8px;" onclick="setColor('#e74c3c')">Red</button>
+            <button class="color-btn" style="background:#27ae60; color:#fff; margin-right:8px;" onclick="setColor('#27ae60')">Green</button>
+            <button class="color-btn" style="background:#f1c40f; color:#fff;" onclick="setColor('#f1c40f')">Yellow</button>
+        </div>
+        <input type="color" id="snakeColor" value="#1e3c72" style="width:60px; height:40px;">
+        <button id="saveSkinBtn">Save</button>
+        <button onclick="location.href='index.html'">Back</button>
+    </div>
+    <script>
+        // Load saved color
+        document.getElementById('snakeColor').value = localStorage.getItem('snakeColor') || '#1e3c72';
+        document.getElementById('saveSkinBtn').onclick = function() {
+            localStorage.setItem('snakeColor', document.getElementById('snakeColor').value);
+            alert('Skin saved!');
+        };
+        function setColor(color) {
+            document.getElementById('snakeColor').value = color;
+        }
+    </script>
+</body>
+</html>

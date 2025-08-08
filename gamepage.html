@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 32px;">
+        <!-- Info Box: Game Instructions -->
+        <div class="info-box">
+            <h3>How to Play</h3>
+            <ul>
+                <li>Use <b>Arrow keys</b> to move the snake (Up, Down, Left, Right).</li>
+                <li>Eat the food to grow and increase your score.</li>
+                <li>Avoid hitting the walls or your own tail.</li>
+                <li>Game ends if you collide with yourself or the wall.</li>
+                <li>Try to get the highest score!</li>
+            </ul>
+        </div>
+        <div class="game-container">
+            <h2 id="score">Score: 0</h2>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <button onclick="location.href='index.html'" class="back-btn">Back to Menu</button>
+            <div id="gameOver" class="game-over" style="display:none;">
+                <h2>Game Over!</h2>
+                <button onclick="window.location.reload()">Restart</button>
+            </div>
+        </div>
+        <div id="side-leaderboard" class="side-leaderboard" style="position: fixed; top: 32px; right: 40px; z-index: 100;">
+            <h2 class="leaderboard-title">Leaderboard</h2>
+            <div id="leaderboard-list"></div>
+        </div>
+    </div>
+    <script type="module" src="src/script.js"></script>
+    <script type="module">
+        import { renderLeaderboard } from './src/leaderboard.js';
+        const container = document.getElementById('leaderboard-list');
+        function updateLeaderboard() {
+            renderLeaderboard(container);
+        }
+        updateLeaderboard();
+        window.addEventListener('leaderboardUpdated', updateLeaderboard);
+    </script>
+</body>
+</html>
